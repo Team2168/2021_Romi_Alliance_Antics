@@ -1,0 +1,10 @@
+{
+  "game": "Color Conundrum",
+  "field-image": "Color.png",
+  "field-corners": {
+    "top-left": [13, 8],
+    "bottom-right": [942, 473]
+  },
+  "field-size": [90, 45],
+  "field-unit": "inches"
+}
