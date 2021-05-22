@@ -1,0 +1,9 @@
+{
+  "lengthUnit": "Inch",
+  "exportUnit": "Always Meters",
+  "maxVelocity": 0.6,
+  "maxAcceleration": 1.2,
+  "wheelBase": 0.138,
+  "gameName": "Color Conundrum",
+  "outputDir": "../src/main/deploy"
+}
