@@ -1,5 +1,5 @@
-# 2021_Romi_Frantic_Fetch
-Repo to store our code for the Frantic Fetch.
+# 2021_Romi_Alliance_Antics
+Repo to store our code for the Alliance Antics competition.
 
 ![](images/course.jpg)
 
@@ -9,7 +9,9 @@ Submission videos:
 
 # Documentation
 
-  * RULES PDF LINKY LINKY TODO
+  * [RULES PDF](https://static1.squarespace.com/static/5d4b06a67cd3580001ded283/t/609e7b6046c352187af83c0d/1620999035581/Alliance+Antics+Rules+1.0.pdf)
+  * WPILib [Blog post](https://wpilib.org/blog/bae-systems-mini-bot-challenge-3-alliance-antics) - game description
+  * Alliance Antics announcement video: https://youtu.be/gCqEi5n3A4c?t=820
   * [Full romi hardware user manual](https://www.pololu.com/docs/0J69/all)
   * WPILib [getting started with Romi documumentation](https://docs.wpilib.org/en/latest/docs/romi-robot/index.html)
 
