@@ -169,8 +169,8 @@ public class RobotContainer {
     gyroResetButton.whenPressed(new ZeroAllTheThings(m_drivetrain));
 
     intakeButton
-        .whenPressed(new InstantCommand(m_intakeMotor::openIntake))
-        .whenReleased(new InstantCommand(m_intakeMotor::closeIntake));
+        .whenPressed(new InstantCommand(m_intakeMotor, m_intakeMotor::openIntake))
+        .whenReleased(new InstantCommand(m_intakeMotor, m_intakeMotor::closeIntake));
 
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Ramsete Trajectory - Unnamed", new PathConverter(m_drivetrain, "output/Unnamed.wpilib.json").getCommand());
