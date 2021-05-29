@@ -23,6 +23,7 @@ import frc.robot.commands.AutonomousTime;
 import frc.robot.commands.PathConverter;
 import frc.robot.commands.ZeroAllTheThings;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.OnBoardIO;
 import frc.robot.subsystems.OnBoardIO.ChannelMode;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -31,7 +32,6 @@ import edu.wpi.first.wpilibj.trajectory.Trajectory;
 import edu.wpi.first.wpilibj.trajectory.TrajectoryConfig;
 import edu.wpi.first.wpilibj.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj.trajectory.constraint.DifferentialDriveVoltageConstraint;
-import edu.wpi.first.wpilibj.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
@@ -48,6 +48,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain = new Drivetrain();
+  private final Intake m_intakeMotor = new Intake();
   private final OnBoardIO m_onboardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
 
   // Assumes a gamepad plugged into channnel 0
@@ -156,14 +157,21 @@ public class RobotContainer {
     // Default command is arcade drive. This will run unless another command
     // is scheduled over it.
     m_drivetrain.setDefaultCommand(getArcadeDriveCommand());
-    JoystickButton gyroResetButton = new JoystickButton(m_controller, 1);
+    JoystickButton gyroResetButton = new JoystickButton(m_controller, 1); // A
+    JoystickButton intakeButton = new JoystickButton(m_controller, 2); // B
 
     // Example of how to use the onboard IO
     Button onboardButtonA = new Button(m_onboardIO::getButtonAPressed);
     onboardButtonA
         .whenActive(new PrintCommand("Button A Pressed"))
         .whenInactive(new PrintCommand("Button A Released"));
+
     gyroResetButton.whenPressed(new ZeroAllTheThings(m_drivetrain));
+
+    intakeButton
+        .whenPressed(new InstantCommand(m_intakeMotor::openIntake))
+        .whenReleased(new InstantCommand(m_intakeMotor::closeIntake));
+
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Ramsete Trajectory - Unnamed", new PathConverter(m_drivetrain, "output/Unnamed.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - Course1", new PathConverter(m_drivetrain, "output/Course1.wpilib.json").getCommand());

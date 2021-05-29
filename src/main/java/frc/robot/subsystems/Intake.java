@@ -9,21 +9,13 @@ import frc.robot.Constants;
 // import frc.robot.utils.smartdashboarddatatypes.SmartDashboardDouble;
 import edu.wpi.first.wpilibj.Servo;
 
-public class IntakeMotor extends SubsystemBase {
+public class Intake extends SubsystemBase {
 
   // public SmartDashboardDouble servoStartAngle;
   public static final double servoStartAngle = 0;
   public static final double servoEndAngle = 90;
 
   private Servo intakeMotor;
-
-  private static IntakeMotor instance = null;
-
-  public static IntakeMotor getInstance() {
-    if (instance == null)
-      instance = new IntakeMotor();
-    return instance;
-  }
 
   public void setServoAngle(double servoAngle) {
     intakeMotor.setAngle(servoAngle);
@@ -43,7 +35,7 @@ public class IntakeMotor extends SubsystemBase {
   }
 
   /** Creates a new IntakeMotor. */
-  private IntakeMotor() {
+  public Intake() {
     intakeMotor = new Servo(Constants.servoInt);
     // servoStartAngle = new SmartDashboardDouble("servoStartAngle");
   }
