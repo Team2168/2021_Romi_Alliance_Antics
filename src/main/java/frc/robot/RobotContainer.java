@@ -48,7 +48,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain = new Drivetrain();
-  private final Intake m_intakeMotor = new Intake();
+  private final Intake m_intakeMotor = Intake.getInstance();
   private final OnBoardIO m_onboardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
 
   // Assumes a gamepad plugged into channnel 0
@@ -169,8 +169,8 @@ public class RobotContainer {
     gyroResetButton.whenPressed(new ZeroAllTheThings(m_drivetrain));
 
     intakeButton
-        .whenPressed(new InstantCommand(m_intakeMotor, m_intakeMotor::openIntake))
-        .whenReleased(new InstantCommand(m_intakeMotor, m_intakeMotor::closeIntake));
+      .whenPressed(new InstantCommand(m_intakeMotor::openIntake, m_intakeMotor))
+      .whenReleased(new InstantCommand(m_intakeMotor::closeIntake, m_intakeMotor));
 
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Ramsete Trajectory - Unnamed", new PathConverter(m_drivetrain, "output/Unnamed.wpilib.json").getCommand());

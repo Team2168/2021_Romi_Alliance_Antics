@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
  * wherever the constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static final int servoInt = 0;
+  public static final int SERVO_PWM_PORT = 2;
 
   public static final class DriveConstants {
     public static final double ksVolts = 0.929;
