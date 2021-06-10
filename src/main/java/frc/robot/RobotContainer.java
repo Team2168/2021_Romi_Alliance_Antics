@@ -176,6 +176,9 @@ public class RobotContainer {
     m_chooser.setDefaultOption("Ramsete Trajectory - Unnamed", new PathConverter(m_drivetrain, "output/Unnamed.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - Course1", new PathConverter(m_drivetrain, "output/Course1.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - Course2", new PathConverter(m_drivetrain, "output/Course2.wpilib.json").getCommand());
+    m_chooser.addOption("Ramsete Trajectory - 1 Ball top", new PathConverter(m_drivetrain, "output/1ball_top.wpilib.json").getCommand());
+    m_chooser.addOption("Ramsete Trajectory - 1 Ball bottom", new PathConverter(m_drivetrain, "output/1ball_bottom.wpilib.json").getCommand());
+    m_chooser.addOption("Ramsete Trajectory - park (0 ball)", new PathConverter(m_drivetrain, "output/park.wpilib.json").getCommand());
     m_chooser.addOption("Course 1 - WPI Trajectory", course1());
     m_chooser.addOption("Course 2 - WPI Trajectory", course2());
     m_chooser.addOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
