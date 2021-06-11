@@ -12,9 +12,10 @@ import edu.wpi.first.wpilibj.Servo;
 public class Intake extends SubsystemBase {
 
   // public SmartDashboardDouble servoStartAngle;
-  public static final double servoStartAngle = 0;
-  public static final double servoEndAngle = 90;
+  public static final double servoStartAngle = 90;
+  public static final double servoEndAngle = 10;
 
+  private static Intake instance = null;
   private Servo intakeMotor;
 
   public void setServoAngle(double servoAngle) {
@@ -34,9 +35,15 @@ public class Intake extends SubsystemBase {
     // setServoAngle(servoStartAngle.get());
   }
 
+
+  public static Intake getInstance() {
+    if (instance == null)
+      instance = new Intake();
+    return instance;
+  }
   /** Creates a new IntakeMotor. */
-  public Intake() {
-    intakeMotor = new Servo(Constants.servoInt);
+  private Intake() {
+    intakeMotor = new Servo(Constants.SERVO_PWM_PORT);
     // servoStartAngle = new SmartDashboardDouble("servoStartAngle");
   }
 
