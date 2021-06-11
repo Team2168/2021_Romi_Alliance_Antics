@@ -8,33 +8,35 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 // import frc.robot.utils.smartdashboarddatatypes.SmartDashboardDouble;
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Timer;
+
 
 public class Intake extends SubsystemBase {
 
-  // public SmartDashboardDouble servoStartAngle;
-  public static final double servoStartAngle = 90;
+  public static final double servoStartAngle = 90; //degrees
+  public static final double servoEndAngle = 10; //degrees
+  private static final double servoUpdateRateSeconds = 0.5; // time to delay between servo commands
 
-  public static final double servoEndAngle = 10;
-
-  private static Intake instance = null;
-
+  private static double commandedServoAngle = servoStartAngle; // Holds the last commanded servo position (degrees)
+  private static double servoHoldoffTime = 0.0; // holds the next time it's ok to actuate the servo after the last recieved command (seconds)
+  
+  public static Intake instance = null;
   private Servo intakeMotor;
-
-  public void setServoAngle(double servoAngle) {
-    intakeMotor.setAngle(servoAngle);
-  }
 
   public double getServoAngle() {
     return intakeMotor.getAngle();
   }
 
   public void openIntake() {
-    setServoAngle(servoEndAngle);
+    // Set the position the servo is moved to
+    // Let the periodic task actually move the servo 
+    commandedServoAngle = servoEndAngle;
   }
 
   public void closeIntake() {
-    setServoAngle(servoStartAngle);
-    // setServoAngle(servoStartAngle.get());
+    // Set the position the servo is moved to
+    // Let the periodic task actually move the servo
+    commandedServoAngle = servoStartAngle;
   }
 
   public static Intake getInstance() {
@@ -50,6 +52,17 @@ public class Intake extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    // This method will be called once per scheduler run.
+    double currentTime = Timer.getFPGATimestamp();
+    double currentPosition = intakeMotor.getAngle();
+  
+    // Move the servo if: 
+    //   1. the current position is different than the last commanded one
+    //   2. we've waited at least servoHoldoffTime before moving the servo
+    //      (rate limit updating the servo position so we don't stall it out and restart the romi) 
+    if ( (currentPosition != commandedServoAngle) && (currentTime > servoHoldoffTime)) {
+      intakeMotor.setAngle(commandedServoAngle);
+      servoHoldoffTime = Timer.getFPGATimestamp() + servoUpdateRateSeconds;
+    }
   }
 }
