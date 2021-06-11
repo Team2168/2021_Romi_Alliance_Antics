@@ -13,9 +13,11 @@ public class Intake extends SubsystemBase {
 
   // public SmartDashboardDouble servoStartAngle;
   public static final double servoStartAngle = 90;
+
   public static final double servoEndAngle = 10;
 
   private static Intake instance = null;
+
   private Servo intakeMotor;
 
   public void setServoAngle(double servoAngle) {
@@ -34,7 +36,6 @@ public class Intake extends SubsystemBase {
     setServoAngle(servoStartAngle);
     // setServoAngle(servoStartAngle.get());
   }
-
 
   public static Intake getInstance() {
     if (instance == null)
