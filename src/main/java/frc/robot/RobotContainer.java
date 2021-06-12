@@ -36,6 +36,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.RamseteCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -179,6 +180,14 @@ public class RobotContainer {
     m_chooser.addOption("Ramsete Trajectory - 1 Ball top", new PathConverter(m_drivetrain, "output/1ball_top.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - 1 Ball bottom", new PathConverter(m_drivetrain, "output/1ball_bottom.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - park (0 ball)", new PathConverter(m_drivetrain, "output/park.wpilib.json").getCommand());
+
+    m_chooser.addOption("Ramsete Trajectory - COMMAND GROUUUUUUUUUUUUUUPPPPPPPPPJ!!!!!!!!!!!!!!!!!!!", new SequentialCommandGroup(
+      new PathConverter(m_drivetrain, "output/1ball_bottom.wpilib.json").getCommand(),
+      new InstantCommand(m_intakeMotor::openIntake, m_intakeMotor),
+      new PathConverter(m_drivetrain, "output/bottomtopark.wpilib.json").getCommand(),
+      new InstantCommand(m_intakeMotor::closeIntake, m_intakeMotor)
+    ));
+
     m_chooser.addOption("Course 1 - WPI Trajectory", course1());
     m_chooser.addOption("Course 2 - WPI Trajectory", course2());
     m_chooser.addOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
