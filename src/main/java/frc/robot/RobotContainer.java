@@ -153,7 +153,6 @@ public class RobotContainer {
     intakeButton.whenPressed(new InstantCommand(m_intakeMotor::openIntake, m_intakeMotor))
         .whenReleased(new InstantCommand(m_intakeMotor::closeIntake, m_intakeMotor));
 
-    // Setup SmartDashboard options
     // m_chooser.setDefaultOption("Ramsete Trajectory - Unnamed", new
     // PathConverter(m_drivetrain, "output/Unnamed.wpilib.json").getCommand());
     // m_chooser.addOption("Ramsete Trajectory - Course1", new
@@ -181,8 +180,13 @@ public class RobotContainer {
     // AutonomousDistance(m_drivetrain));
     // m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
 
-    m_chooser.addOption("Ramsete Trajectory - park (0 ball)",
+     // Setup SmartDashboard options
+    m_chooser.setDefaultOption("Ramsete Trajectory - 0 Ball",
         new PathConverter(m_drivetrain, "output/0ball.wpilib.json").getCommand());
+    m_chooser.addOption("Ramsete Trajectory - 0 Ball Alternate",
+        new PathConverter(m_drivetrain, "output/0ball-alt.wpilib.json").getCommand());
+      m_chooser.addOption("Ramsete Trajectory - Do Nothing",
+        new PathConverter(m_drivetrain, "output/no-move.wpilib.json").getCommand());
     SmartDashboard.putData(m_chooser);
   }
 
