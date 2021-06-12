@@ -179,7 +179,7 @@ public class RobotContainer {
     m_chooser.addOption("Ramsete Trajectory - Course2", new PathConverter(m_drivetrain, "output/Course2.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - 1 Ball top", new PathConverter(m_drivetrain, "output/1ball_top.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - 1 Ball bottom", new PathConverter(m_drivetrain, "output/1ball_bottom.wpilib.json").getCommand());
-    m_chooser.addOption("Ramsete Trajectory - park (0 ball)", new PathConverter(m_drivetrain, "output/park.wpilib.json").getCommand());
+    m_chooser.addOption("Ramsete Trajectory - park (0 ball)", new PathConverter(m_drivetrain, "output/0ball.wpilib.json").getCommand());
 
     m_chooser.addOption("Ramsete Trajectory - COMMAND GROUUUUUUUUUUUUUUPPPPPPPPPJ!!!!!!!!!!!!!!!!!!!", new SequentialCommandGroup(
       new PathConverter(m_drivetrain, "output/1ball_bottom.wpilib.json").getCommand(),
