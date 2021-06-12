@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.Timer;
 public class Intake extends SubsystemBase {
 
   public static final double servoStartAngle = 90; //degrees
-  public static final double servoEndAngle = 10; //degrees
+  public static final double servoEndAngle = 15; //degrees
   private static final double servoUpdateRateSeconds = 0.5; // time to delay between servo commands
 
   private static double commandedServoAngle = servoStartAngle; // Holds the last commanded servo position (degrees)
