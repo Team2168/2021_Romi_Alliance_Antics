@@ -1,1 +1,32 @@
-[{"time":0.0,"velocity":9.284956889771236E-5,"acceleration":-1.1999999999999997,"pose":{"translation":{"x":2.0574,"y":0.9144},"rotation":{"radians":0.0}},"curvature":"NaN"},{"time":7.737464074809366E-5,"velocity":0.0,"acceleration":-1.1999999999999997,"pose":{"translation":{"x":2.0574000025399983,"y":0.9143999974600004},"rotation":{"radians":0.0}},"curvature":2.0501242098434465E13}]
+[
+{
+"acceleration": -0.03048,
+"curvature": null,
+"pose": {
+"rotation": {
+"radians": 0.0
+},
+"translation": {
+"x": 2.0574,
+"y": 0.9144
+}
+},
+"time": 0.0,
+"velocity": 1.479778625639904e-05
+},
+{
+"acceleration": -0.03048,
+"curvature": 20501242098434.465,
+"pose": {
+"rotation": {
+"radians": 0.0
+},
+"translation": {
+"x": 2.0574000025399983,
+"y": 0.9143999974600004
+}
+},
+"time": 0.0004854916750787087,
+"velocity": 0.0
+}
+]

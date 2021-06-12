@@ -185,9 +185,9 @@ public class RobotContainer {
         new PathConverter(m_drivetrain, "output/0ball.wpilib.json").getCommand());
     m_chooser.addOption("Ramsete Trajectory - 0 Ball Alternate",
         new PathConverter(m_drivetrain, "output/0ball-alt.wpilib.json").getCommand());
-      m_chooser.addOption("Ramsete Trajectory - Do Nothing",
-        new PathConverter(m_drivetrain, "output/no-move.wpilib.json").getCommand());
-    SmartDashboard.putData(m_chooser);
+    //   m_chooser.addOption("Ramsete Trajectory - Do Nothing",
+    //     new PathConverter(m_drivetrain, "output/no-move.wpilib.json").getCommand());
+    // SmartDashboard.putData(m_chooser);
   }
 
   /**
