@@ -179,6 +179,8 @@ public class RobotContainer {
     // m_chooser.addOption("Course 1 - WPI Trajectory", course1());
     // m_chooser.addOption("Course 2 - WPI Trajectory", course2());
     m_chooser.setDefaultOption("Parking", new PathConverter(m_drivetrain, "output/Parking.wpilib.json").getCommand());
+    m_chooser.addOption("Ball Weave", new PathConverter(m_drivetrain, "output/ball_weave.wpilib.json").getCommand());
+    m_chooser.addOption("Ball Weave 2", new PathConverter(m_drivetrain, "output/ball_weave2.wpilib.json").getCommand());
     // m_chooser.addOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
     // m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
     
