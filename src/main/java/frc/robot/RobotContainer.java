@@ -176,8 +176,8 @@ public class RobotContainer {
     // m_chooser.setDefaultOption("Ramsete Trajectory - Unnamed", new PathConverter(m_drivetrain, "output/Unnamed.wpilib.json").getCommand());
     // m_chooser.addOption("Ramsete Trajectory - Course1", new PathConverter(m_drivetrain, "output/Course1.wpilib.json").getCommand());
     // m_chooser.addOption("Ramsete Trajectory - Course2", new PathConverter(m_drivetrain, "output/Course2.wpilib.json").getCommand());
-    // m_chooser.addOption("Course 1 - WPI Trajectory", course1());
-    // m_chooser.addOption("Course 2 - WPI Trajectory", course2());
+    m_chooser.addOption("Course 1 - WPI Trajectory", course1());
+    m_chooser.addOption("Course 2 - WPI Trajectory", course2());
     m_chooser.setDefaultOption("Parking", new PathConverter(m_drivetrain, "output/Parking.wpilib.json").getCommand());
     m_chooser.addOption("Ball Weave", new PathConverter(m_drivetrain, "output/ball_weave.wpilib.json").getCommand());
     m_chooser.addOption("Ball Weave 2", new PathConverter(m_drivetrain, "output/ball_weave2.wpilib.json").getCommand());
